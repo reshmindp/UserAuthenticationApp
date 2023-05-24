@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'App\Http\Controllers\User\LoginController@login_page');
+
+Route::group(['prefix'=>'user',  'as'=>'user.', 'middleware' => 'prevent-back-history'], function()
+{
+    Route::post('register', 'App\Http\Controllers\User\UserController@register_page')->name('register.page');
+    
 });
