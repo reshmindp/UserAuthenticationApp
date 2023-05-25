@@ -19,6 +19,7 @@
 
     <!-- Main CSS-->
     <link href="{{asset('public/css/main.css')}}" rel="stylesheet" media="all">
+    @stack('custom-css')
 </head>
 <body>
 
