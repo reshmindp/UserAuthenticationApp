@@ -57,13 +57,13 @@ class LoginController extends Controller
         
         $qrCode = QrCode::size(250)->generate(route('user.show', ['userId' => $userInfo->user_id]));
 
-        $tmpFilePath = public_path('/qrcode.png');
+        $tmpFilePath = public_path('/qrcode.svg');
 
         file_put_contents($tmpFilePath, $qrCode);
 
         $headers = [
-            'Content-Type' => 'image/png',
-            'Content-Disposition' => 'attachment; filename="qrcode.png"',
+            'Content-Type' => 'image/svg',
+            'Content-Disposition' => 'attachment; filename="qrcode.svg"',
         ];
 
         // Create a response with the file content
